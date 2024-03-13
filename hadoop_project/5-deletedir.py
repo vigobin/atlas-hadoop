@@ -5,7 +5,7 @@ import snakebite.client as sb
 
 def deletedir(l):
     """Removes the directories listed on l within HDFS."""
-    client = sb.Client("localhost", 9000)
+    client = sb.Client("hadoop3", 9000)
     try:
         for dir_name in client.delete(l, recurse=True):
             print(dir_name)
@@ -14,4 +14,4 @@ def deletedir(l):
 
 
 if __name__ == "__main__":
-    deletedir(["/holbies/input"])
+    deletedir(l)

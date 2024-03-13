@@ -5,7 +5,7 @@ import snakebite.client as sb
 
 def createdir(l):
     """Creates the directories listed on l within HDFS."""
-    client = sb.Client("localhost", 9000)
+    client = sb.Client("hadoop3", 9000)
     for dir_name in client.mkdir(l, create_parent=True):
         print(dir_name)
 
