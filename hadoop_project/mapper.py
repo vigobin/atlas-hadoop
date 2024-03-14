@@ -1,7 +1,9 @@
 #!/usr/bin/env python2
-"""Task 6. MapReduce (mapper)"""
+"""Task 6. MapReduce (mapper) in a Hadoop environment.
+    Takes the rows of the salaries.csv and prints the id,
+        the company and the totalyearlycompensation items."""
 import csv
 import sys
 
-for row in csv.reader(sys.stdin):
-    print(str(row[0]) + "\t" + str(row[1]) + "," + str(row[3]))
+for row in csv.reader(sys.stdin, delimiter=','):
+    print('{}\t{},{}'.format(row[0], row[1], row[3]))

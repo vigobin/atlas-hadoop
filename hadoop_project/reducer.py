@@ -6,11 +6,11 @@ top_salaries = []
 
 for line in sys.stdin:
     try:
-        id_, company_total = line.strip().split("\t")
+        id, company_total = line.strip().split("\t")
         company, totalyearlycompensation = company_total.split(",")
         totalyearlycompensation = float(totalyearlycompensation)
 
-        top_salaries.append((company, totalyearlycompensation))
+        top_salaries.append((id, totalyearlycompensation, company))
 
         # Keep only the top 10 salaries
         top_salaries.sort(key=lambda x: x[1], reverse=True)
@@ -19,5 +19,7 @@ for line in sys.stdin:
         # Skip rows with incorrect format
         pass
 
-for company, salary in top_salaries:
-    print(company + "\t" + "{:.2f}".format(salary))
+print("id\tSalary\tcompany")
+
+for id, salary, company in top_salaries:
+    print("{}\t{}\t{}".format(id, salary, company))
